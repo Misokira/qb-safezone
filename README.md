@@ -1,8 +1,8 @@
 # :warning: Information
-Simple script to add Safezones
+Simple script to add Safezones, modified to work with [qb-notify](https://github.com/Marttins011/qb-notify)
 
 # :hammer: Requirements
-[mythic_notify](https://github.com/FlawwsX/mythic_notify) - For notifications when in Safezones
+[qb-notify](https://github.com/Marttins011/qb-notify) - For notifications when in Safezones
 
 # :hammer_and_wrench: Features
 - Speed limit in Safezones
@@ -18,7 +18,7 @@ Simple script to add Safezones
 
 # :gear: How to install
 1. Add the **Safezones** folder to your FiveM resources directory.
-2. Edit your server.cfg and add “ensure **Safezones**”
+2. Edit your server.cfg and add “ensure **qb-safezone**”
 
 # :wrench: Support
 Open an issue or join my discord server for support
