@@ -1,3 +1,4 @@
+local QBCore = exports['qb-core']:GetCoreObject()
 local SafezoneIn = false
 local SafezoneOut = false
 local closestZone = 1
@@ -25,21 +26,6 @@ RegisterCommand("sbypass", function(source, args, rawCommand)
 else
 	ShowInfo("~r~Insufficient Permissions.")
 end
-end)
-
-Citizen.CreateThread(function()
-	for i = 1, #Config.zones, 1 do
-	local blip = AddBlipForRadius(Config.zones[i].x, Config.zones[i].y, Config.zones[i].z, Config.radius)
-	SetBlipHighDetail(blip, true)
-	SetBlipColour(blip, 11)
-	SetBlipAlpha (blip, 128)
-    local blip1 = AddBlipForCoord(x, y, z)
-	SetBlipSprite (blip1, sprite)
-	SetBlipDisplay(blip1, true)
-	SetBlipScale  (blip1, 0.9)
-	SetBlipColour (blip1, 11)
-    SetBlipAsShortRange(blip1, true)
-	end
 end)
 
 Citizen.CreateThread(function()
@@ -74,7 +60,7 @@ Citizen.CreateThread(function()
 				ClearPlayerWantedLevel(PlayerId())
 				SetCurrentPedWeapon(player,GetHashKey("WEAPON_UNARMED"),true)
 				if Config.showNotification then
-				exports['mythic_notify']:PersistentAlert('start', 'safezoneAlert', Config.notificationstyle, Config.safezoneMessage)
+				QBCore.Functions.Notify('Tu es en safezone', 'success', 5000)
 				end
 				SafezoneIn = true
 				SafezoneOut = false
@@ -83,7 +69,7 @@ Citizen.CreateThread(function()
 			if not SafezoneOut then
 				NetworkSetFriendlyFireOption(true)
 				if Config.showNotification then
-				exports['mythic_notify']:PersistentAlert('end', 'safezoneAlert')
+				QBCore.Functions.Notify('Tu n\'es plus en safezone', 'error', 5000)
 				end
 				if Config.speedlimitinSafezone then
 				SetVehicleMaxSpeed(vehicle, 1000.00)
