@@ -10,14 +10,5 @@ Config.zones = {
 
 
 Config.showNotification = true -- Show notification when in Safezone?
-Config.safezoneMessage = "You are currently in a Safezone" -- Change the message that shows when you are in a safezone
 Config.radius = 50.0 -- Change the RADIUS of the Safezone.
-Config.speedlimitinSafezone = 30.0 -- Set a speed limit in a Safezone (MPH), Set to false to disable
-
-
--- Change the color of the notification
-Config.notificationstyle = "success"
---Notification Styles
--- inform
--- error
--- success
+Config.speedlimitinSafezone = false -- Set a speed limit in a Safezone (MPH), Set to false to disable
